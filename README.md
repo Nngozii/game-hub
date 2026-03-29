@@ -28,7 +28,7 @@ A modern web application for discovering video games, built with React. GameHub 
 1. Clone the repository:
 
 ```bash
-git clone https://github.com/your-username/gamehub.git
+https://github.com/Nngozii/game-hub.git
 ```
 
 2. Navigate into the project directory:
