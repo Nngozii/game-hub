@@ -7,6 +7,7 @@ export interface Game {
   id: string;
   title: string;
   thumbnail: string;
+  platform: string;
 }
 
 const GameGrid = ({}: Game) => {

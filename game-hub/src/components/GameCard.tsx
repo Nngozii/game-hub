@@ -1,18 +1,19 @@
-import { Card, CardBody, Heading, Image } from "@chakra-ui/react";
+import { Card, CardBody, Heading, Icon, Image } from "@chakra-ui/react";
+import { FaWindows } from "react-icons/fa";
 
-import heroImage from "../assets/hero.png";
 import type { Game } from "../../hooks/GameGrid";
 
 interface Props {
-  games: Game
+  games: Game;
 }
 
-const GameCard = ({games}: Props) => {
+const GameCard = ({ games }: Props) => {
   return (
     <Card.Root padding={"10px"} borderRadius={"20px"}>
       <Image src={games.thumbnail} />
       <CardBody>
         <Heading fontSize={"1xl"}>{games.title}</Heading>
+        <Icon color={"gray.500"} marginY={"10px"}><FaWindows /></Icon>
       </CardBody>
     </Card.Root>
   );
