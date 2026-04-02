@@ -5,7 +5,7 @@ import {
 } from "../components/ui/color-mode";
 
 const ColorModeSwitch = () => {
-    const { toggleColorMode, colorMode } = useColorMode()
+    //const { toggleColorMode, colorMode } = useColorMode()
   return (
       <HStack>
         <ColorModeButton />
