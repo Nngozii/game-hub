@@ -1,16 +1,21 @@
-import { Card, CardBody, Heading, Image } from "@chakra-ui/react"
+import { Card, CardBody, Heading, Image } from "@chakra-ui/react";
 
-import heroImage from "../assets/hero.png"
+import heroImage from "../assets/hero.png";
+import type { Game } from "../../hooks/GameGrid";
 
-const GameCard = () => {
-  return (
-    <Card.Root padding={"10px"}>
-        <Image src={heroImage} boxSize={"100px"}/>
-        <CardBody>
-            <Heading>Game 1</Heading>
-        </CardBody>
-    </Card.Root>
-  )
+interface Props {
+  games: Game
 }
 
-export default GameCard
+const GameCard = ({games}: Props) => {
+  return (
+    <Card.Root padding={"10px"} borderRadius={"20px"}>
+      <Image src={games.thumbnail} />
+      <CardBody>
+        <Heading fontSize={"1xl"}>{games.title}</Heading>
+      </CardBody>
+    </Card.Root>
+  );
+};
+
+export default GameCard;

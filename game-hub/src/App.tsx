@@ -2,7 +2,7 @@ import { Grid, GridItem, Stack } from "@chakra-ui/react";
 
 
 import NavBar from "./components/NavBar";
-import GameGrid from "./components/GameGrid";
+import GameGrid from "../hooks/GameGrid";
 import { CgGames } from "react-icons/cg";
 
 
@@ -25,8 +25,8 @@ const App = () => {
           Hey2
         </GridItem>
       </Stack>
-      <GridItem area={"main"} bg={"dodgerblue"}>
-        <GameGrid id={""} title={""} />
+      <GridItem area={"main"}>
+        <GameGrid id={""} title={""} thumbnail="" />
       </GridItem>
     </Grid>
   );
