@@ -30,7 +30,19 @@ array in order to be able to map. The :Game is just a typescript thing needed.
   return (
     <List.Root listStyle="none">
       {genres.map((data) => (
-        <ListItem key={data} paddingY={"3px"}>
+        <ListItem
+          key={data}
+          paddingY={"3px"}
+          paddingX="3px"
+          borderRadius="8px"
+          cursor="pointer"
+          fontWeight="medium"
+          transition="all 0.2s"
+          _hover={{
+            bg: "whiteAlpha.200",
+            paddingLeft: "18px",
+          }}
+        >
           <Text>{data}</Text>
         </ListItem>
       ))}
