@@ -10,10 +10,11 @@ export interface Game {
   title: string;
   thumbnail: string;
   platform: string;
+  genre: string;
 }
 
 const GameGrid = ({}: Game) => {
-  const [games, setGames] = useState([]);
+  const [games, setGames] = useState<Game[]>([]);
   const [error, setError] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const skeleton = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
