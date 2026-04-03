@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import api from "../services/api-client";
 
 import type { Game } from "../../hooks/GameGrid";
+import { List, ListItem, Text } from "@chakra-ui/react";
 
 const GenreList = () => {
   const [genres, setGenres] = useState<string[]>([]);
@@ -27,11 +28,13 @@ array in order to be able to map. The :Game is just a typescript thing needed.
   }, []);
 
   return (
-    <ul>
+    <List.Root listStyle="none">
       {genres.map((data) => (
-        <li key={data}>{data}</li>
+        <ListItem key={data} paddingY={"3px"}>
+          <Text>{data}</Text>
+        </ListItem>
       ))}
-    </ul>
+    </List.Root>
   );
 };
 
