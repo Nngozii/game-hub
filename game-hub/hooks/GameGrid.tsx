@@ -17,7 +17,7 @@ const GameGrid = ({}: Game) => {
   const [games, setGames] = useState<Game[]>([]);
   const [error, setError] = useState("");
   const [isLoading, setIsLoading] = useState(false);
-  const skeleton = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+  const skeleton = [1, 2, 3, 4, 5, 6, 7, 8];
 
   useEffect(() => {
     setIsLoading(true);
@@ -35,7 +35,7 @@ const GameGrid = ({}: Game) => {
 
   return (
     <SimpleGrid
-      columns={{ sm: 1, md: 2, lg: 3, xl: 5 }}
+      columns={{ sm: 1, md: 2, lg: 3, xl: 4 }}
       gap="30px"
       padding={"10px"}
     >

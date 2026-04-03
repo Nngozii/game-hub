@@ -11,6 +11,10 @@ const App = () => {
         base: `"nav" "main"`,
         lg: `"nav nav" "aside main"`,
       }}
+      templateColumns={{
+        base: '1fr',
+        lg: "180px 1fr"
+      }}
     >
       <GridItem area={"nav"}>
         <NavBar />
@@ -18,7 +22,7 @@ const App = () => {
       <Stack hideBelow="lg">
         {" "}
         {/*This is used for responsiveness. To hide thr aside bar below large screens*/}
-        <GridItem area={"aside"} bg={"gold"}>
+        <GridItem area={"aside"} paddingX={5}>
           <GenreList />
         </GridItem>
       </Stack>
