@@ -13,7 +13,7 @@ const GameCard = ({ games }: Props) => {
       <Image src={games.thumbnail} />
       <CardBody>
         <Heading fontSize={"1xl"}>{games.title}</Heading>
-        <Icon color={"gray.500"} marginY={"10px"}><FaWindows /></Icon>
+        <Icon color={"gray.500"} marginY={"10px"}><FaWindows /></Icon> {/*windows Icon*/}
       </CardBody>
     </Card.Root>
   );
