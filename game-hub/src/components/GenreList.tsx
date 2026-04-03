@@ -2,13 +2,17 @@ import { useEffect, useState } from "react";
 import api from "../services/api-client";
 
 import type { Game } from "../../hooks/GameGrid";
-import { List, ListItem, Text } from "@chakra-ui/react";
+import { List, ListItem, Text, Spinner } from "@chakra-ui/react";
+
 
 const GenreList = () => {
   const [genres, setGenres] = useState<string[]>([]);
   const [error, setError] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
+
+    setIsLoading(true)
     api
       .get<Game[]>("/games")
       .then((response) => {
@@ -21,14 +25,18 @@ array in order to be able to map. The :Game is just a typescript thing needed.
           ...new Set(response.data.map((game: Game) => game.genre)),
         ];
         setGenres(uniqueGenre);
+        setIsLoading(false);
       })
       .catch((err) => {
         setError(err.message);
+        setIsLoading(false);
       });
   }, []);
 
   return (
+    
     <List.Root listStyle="none">
+        {isLoading && <Spinner animationDuration="0.8s" />}
       {genres.map((data) => (
         <ListItem
           key={data}
