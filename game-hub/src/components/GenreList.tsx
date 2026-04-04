@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import api from "../services/api-client";
 
 import type { Game } from "../../hooks/GameGrid";
-import { List, ListItem, Text, Spinner } from "@chakra-ui/react";
+import { List, ListItem, Spinner, Button } from "@chakra-ui/react";
 
 
 const GenreList = () => {
@@ -51,7 +51,7 @@ array in order to be able to map. The :Game is just a typescript thing needed.
             paddingLeft: "18px",
           }}
         >
-          <Text>{data}</Text>
+          <Button variant={"ghost"} onClick={() => {console.log("CLicked", data)}}>{data}</Button>
         </ListItem>
       ))}
     </List.Root>
