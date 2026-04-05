@@ -9,7 +9,8 @@ const App = () => {
   /* Lifting the select game by genre state or function to this App file(Parent) because
   the GameGrid component and the GenreList component want to share it(the state)
 */
-const [selectedGenre, setSelectedGenre] = useState(null)
+const [selectedGenre, setSelectedGenre] = useState("")
+
   return (
     <Grid
       templateAreas={{
@@ -29,12 +30,12 @@ const [selectedGenre, setSelectedGenre] = useState(null)
         {" "}
         {/*This is used for responsiveness. To hide thr aside bar below large screens*/}
         <GridItem area={"aside"} paddingX={5}>
-          <GenreList />
+          <GenreList onSelectGenre={(genre) => setSelectedGenre(genre)}/>
         </GridItem>
       </Stack>
 
       <GridItem area={"main"}>
-        <GameGrid id={""} title={""} thumbnail="" platform="" genre="" /> {/*heaven knows how I moved my way around this one*/}
+        <GameGrid selectedGenre={selectedGenre} /> {/*heaven knows how I moved my way around this one*/}
       </GridItem>
     </Grid>
   );
