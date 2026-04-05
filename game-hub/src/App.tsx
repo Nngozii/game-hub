@@ -1,9 +1,11 @@
 import { Grid, GridItem, Stack } from "@chakra-ui/react";
+import { useState } from "react";
 
 import NavBar from "./components/NavBar";
 import GameGrid from "../hooks/GameGrid";
 import GenreList from "./components/GenreList";
-import { useState } from "react";
+import PlatformSelector from "./components/PlatformSelector";
+
 
 const App = () => {
   /* Lifting the select game by genre state or function to this App file(Parent) because
@@ -35,6 +37,7 @@ const [selectedGenre, setSelectedGenre] = useState("")
       </Stack>
 
       <GridItem area={"main"}>
+        <PlatformSelector />
         <GameGrid selectedGenre={selectedGenre} /> {/*heaven knows how I moved my way around this one*/}
       </GridItem>
     </Grid>
