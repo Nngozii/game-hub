@@ -3,7 +3,7 @@ import { SimpleGrid } from "@chakra-ui/react";
 
 import GameCard from "../src/components/GameCard";
 import GameCarSkeleton from "../src/components/GameCarSkeleton";
-import apiClient from "../src/services/api-client";
+import api from "../src/services/api-client";
 
 export interface Game {
   id: string;
@@ -13,7 +13,11 @@ export interface Game {
   genre: string;
 }
 
-const GameGrid = ({}: Game) => {
+interface Props{
+  selectedGenre: string
+}
+
+const GameGrid = ({selectedGenre}: Props) => {
   const [games, setGames] = useState<Game[]>([]);
   const [error, setError] = useState("");
   const [isLoading, setIsLoading] = useState(false);
@@ -21,8 +25,8 @@ const GameGrid = ({}: Game) => {
 
   useEffect(() => {
     setIsLoading(true);
-    apiClient
-      .get("/games")
+    api
+      .get(`/games${selectedGenre ? `?category=${selectedGenre}` : ""}`)
       .then((game) => {
         setGames(game.data);
         setIsLoading(false);
@@ -31,9 +35,10 @@ const GameGrid = ({}: Game) => {
         setError(err.message);
         setIsLoading(false);
       });
-  }, []);
+  }, [selectedGenre]);
 
   return (
+    
     <SimpleGrid
       columns={{ sm: 1, md: 2, lg: 3, xl: 4 }}
       gap="30px"
