@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import api from "../services/api-client";
 
 import type { Game } from "../../hooks/GameGrid";
-import { List, ListItem, Spinner, Button } from "@chakra-ui/react";
+import { List, ListItem, Spinner, Button, Text } from "@chakra-ui/react";
 
 
 const GenreList = () => {
@@ -34,7 +34,8 @@ array in order to be able to map. The :Game is just a typescript thing needed.
   }, []);
 
   return (
-    
+    <>
+    {error && <Text paddingY={"20px"}>Error Loading Genres</Text>}
     <List.Root listStyle="none">
         {isLoading && <Spinner animationDuration="0.8s" />}
       {genres.map((data) => (
@@ -55,6 +56,7 @@ array in order to be able to map. The :Game is just a typescript thing needed.
         </ListItem>
       ))}
     </List.Root>
+    </>
   );
 };
 
