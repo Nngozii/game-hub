@@ -19,7 +19,7 @@ interface Props{
 
 const GameGrid = ({selectedGenre}: Props) => {
   const [games, setGames] = useState<Game[]>([]);
-  const [error, setError] = useState("");
+  //const [error, setError] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const skeleton = [1, 2, 3, 4, 5, 6, 7, 8];
 
@@ -31,8 +31,8 @@ const GameGrid = ({selectedGenre}: Props) => {
         setGames(game.data);
         setIsLoading(false);
       })
-      .catch((err) => {
-        setError(err.message);
+      .catch(() => {
+       // setError(err.message);
         setIsLoading(false);
       });
   }, [selectedGenre]);

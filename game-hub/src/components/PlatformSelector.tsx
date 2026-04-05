@@ -1,5 +1,8 @@
 import { Menu, Button, Portal } from '@chakra-ui/react'
 import { BsChevronDown } from 'react-icons/bs'
+
+
+
 const PlatformSelector = () => {
   return (
     <Menu.Root>
@@ -11,11 +14,8 @@ const PlatformSelector = () => {
       <Portal>
         <Menu.Positioner>
           <Menu.Content>
-            <Menu.Item value="new-txt">New Text File</Menu.Item>
-            <Menu.Item value="new-file">New File...</Menu.Item>
-            <Menu.Item value="new-win">New Window</Menu.Item>
-            <Menu.Item value="open-file">Open File...</Menu.Item>
-            <Menu.Item value="export">Export</Menu.Item>
+            <Menu.Item value="windows">PC (Windows)</Menu.Item>
+            <Menu.Item value="browser">Web Browser</Menu.Item>
           </Menu.Content>
         </Menu.Positioner>
       </Portal>
